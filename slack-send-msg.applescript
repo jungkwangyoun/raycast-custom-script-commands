@@ -42,9 +42,9 @@ on sendMessage(titleToSend, userMention)
       my stringToClipboard(UserMention)
       keystroke "v" using command down
       delay 0.3
-			key code 36
+      key code 36
       delay 0.3
-			key code 36
+      key code 36
 		end tell
 	end tell
 end sendMessage
