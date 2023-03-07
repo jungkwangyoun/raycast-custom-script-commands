@@ -10,7 +10,7 @@
 # @raycast.description 이슈등록 자동 입력
 # @raycast.needsConfirmation true
 # @raycast.argument1 { "type": "text", "placeholder": "Title", "optional": true, }
-# @raycast.argument2 { "type": "text", "placeholder": "User (default: @정광윤)", "optional": true, }
+# @raycast.argument2 { "type": "text", "placeholder": "User (default: @)", "optional": true, }
 
 
 on openChannel(channel)
@@ -31,7 +31,7 @@ on sendMessage(titleToSend, userMention)
 	tell application "Slack"
 		activate
 		tell application "System Events"
-      my stringToClipboard("!이슈등록 ")
+      my stringToClipboard("")  -- TODO: cmd
       keystroke "v" using command down
       delay 0.3
 
@@ -57,7 +57,7 @@ on run argv
     set title to item 1 of argv
     set user to item 2 of argv
 
-    set channelToSendTo to "#team-data-platform-dev-bank"
+    set channelToSendTo to "#"  -- TODO: slack channel
 
 -- if no title
     if title = "" then
@@ -68,7 +68,7 @@ on run argv
 
 -- if no user
     if user = "" then
-        set userMention to "@정광윤"
+        set userMention to "@"  -- TODO: slack user
     else
         set userMention to user
     end if
